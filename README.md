@@ -63,7 +63,7 @@ windows by pressing `"` (double-quotation mark).
 
 > If you don't have anything in your `.screenrc`, enter the
 > following command in a terminal window:
->     echo 'caption always "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"' >> ~/.screenrc
+> `echo 'caption always "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"' >> ~/.screenrc`
 
 ## License
 
