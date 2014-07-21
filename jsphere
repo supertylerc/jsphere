@@ -1,0 +1,17 @@
+#!/bin/bash
+# File    : jsphere
+# Date    : 2013-02-08
+# Author  : Tyler Christiansen <tyler@oss-stack.io>
+# License : BSD 2-Clause (http://opensource.org/licenses/BSD-2-Clause)
+# Purpose : Wrap the jsphere_work expect script to utilize screen 
+# Purpose :   session windows
+
+screen -d -m -S junosphere
+
+while read line; do
+  if [[ $line == *Name*  ]]; then continue; fi
+  line=${line//\"/}
+  data=$(echo $line | awk -F, '{print $1 " " $3}')
+  screen -S junosphere -X screen ./jsphere_work $data
+done<virtualMachines.csv
+screen -r junosphere
